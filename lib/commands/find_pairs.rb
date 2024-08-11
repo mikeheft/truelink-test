@@ -25,7 +25,7 @@ module Commands
           total = pair[0].price + pair[1].price
           total <= @balance ? total : 0
         end
-        return 'Not possible' unless best
+        return 'Not possible' if best.nil? || (best[0].price + best[1].price > @balance)
 
         best
       end
