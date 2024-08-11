@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
+- `ruby 3.3.0`
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+- Clone the repo; `git clone git@github.com:mikeheft/truelink.git`
+- cd into repo; `cd truelink`
+- run setup script; `./setup.sh`
+  - This creates a simlink that allows for the desired usage outlined in the project brief outlined [below](#cli)
 
-* System dependencies
+## Usage
+### CLI
 
-* Configuration
+```sh
+# path to file being the path to the file you wish to find the best pairs
+# balance being a positive integer; dollars as cents, e.g., 1000 == $10
+find-pairs <path to file> <balance>
+# Example output...
+#=> Candy Bar 500, Earmuffs 2000
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Testing
+To run the test suite, simply run `bundle exec rspec`
