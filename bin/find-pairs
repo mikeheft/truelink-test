@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Path to the Ruby script relative to the repo root
+SCRIPT_PATH="./bin/find_pairs_runner.rb"
+
+# Forward all arguments to the Ruby script
+ruby $SCRIPT_PATH "$@"
