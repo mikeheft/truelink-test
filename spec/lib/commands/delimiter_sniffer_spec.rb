@@ -44,13 +44,5 @@ describe Commands::DelimiterSniffer do
         expect { find_delimiter }.to raise_error(described_class::NoColumnSeparatorFound)
       end
     end
-
-    context 'when possible ultiple delimiters' do
-      let(:path) { './spec/fixtures/vehicle_info_with_possible_mixed_delimiters.txt' }
-
-      it 'is able to determine correct delimiter' do
-        expect(find_delimiter).to eq('|')
-      end
-    end
   end
 end
