@@ -17,8 +17,10 @@
 # path to file being the path to the file you wish to find the best pairs
 # balance being a positive integer; dollars as cents, e.g., 1000 == $10
 find-pairs <path to file> <balance>
-# Example output...
-#=> Candy Bar 500, Earmuffs 2000
+
+# Example
+find-pairs ./spec/fixtures/prices_with_commas.txt 2300
+#=> Paperback Book 700, Headphones 1400
 ```
 
 ### Testing
