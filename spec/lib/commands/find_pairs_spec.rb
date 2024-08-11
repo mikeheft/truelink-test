@@ -27,6 +27,20 @@ RSpec.describe Commands::FindPairs do
         expect(result).to eq(expected)
       end
 
+      it 'returns the pair with the highest total price for a balance of 2300' do
+        file = file_content
+        balance = 2300
+
+        result = described_class.call(file:, balance:)
+
+        expected = [
+          OpenStruct.new(name: 'Paperback Book', price: 700),
+          OpenStruct.new(name: 'Headphones', price: 1400)
+        ]
+
+        expect(result).to eq(expected)
+      end
+
       it 'returns the pair with the highest total price for a balance of 2500' do
         file = file_content
         balance = 2500
@@ -46,6 +60,15 @@ RSpec.describe Commands::FindPairs do
       it 'returns "Not possible" for balance of 500' do
         file = file_content
         balance = 500
+
+        result = described_class.call(file:, balance:)
+
+        expect(result).to eq('Not possible')
+      end
+
+      it 'returns "Not possible" for a balance of 1100' do
+        file = file_content
+        balance = 1100
 
         result = described_class.call(file:, balance:)
 
