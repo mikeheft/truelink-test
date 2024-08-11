@@ -2,12 +2,13 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require './lib/commands/delimiter_sniffer'
 
 describe Commands::DelimiterSniffer do
   describe '.call' do
     subject(:find_delimiter) { described_class.call(File.read(path)) }
 
-    let(:path) { './spec/fixtures/vehicle_info_with_commas.txt' }
+    let(:path) { './spec/fixtures/prices_with_commas.txt' }
 
     context 'when , delimiter' do
       it 'returns separator' do
@@ -16,7 +17,7 @@ describe Commands::DelimiterSniffer do
     end
 
     context 'when ; delimiter' do
-      let(:path) { './spec/fixtures/vehicle_info_with_semicolons.txt' }
+      let(:path) { './spec/fixtures/prices_with_semicolons.txt' }
 
       it 'returns separator' do
         expect(find_delimiter).to eq(';')
@@ -24,7 +25,7 @@ describe Commands::DelimiterSniffer do
     end
 
     context 'when | delimiter' do
-      let(:path) { './spec/fixtures/vehicle_info_with_pipes.txt' }
+      let(:path) { './spec/fixtures/prices_with_pipes.txt' }
 
       it 'returns separator' do
         expect(find_delimiter).to eq('|')
